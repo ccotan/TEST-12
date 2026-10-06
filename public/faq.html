@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ - QUADRANT</title>
+<meta name="description" content="Частые вопросы о сервере QUADRANT.">
+<meta name="theme-color" content="#060A12">
+<link rel="icon" href="assets/favicon.svg?v=9" type="image/svg+xml"><link rel="alternate icon" href="assets/favicon.png?v=9" type="image/png"><link rel="apple-touch-icon" href="assets/favicon.png?v=9">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="assets/style.css?v=12">
+</head>
+<body data-page="faq">
+<main class="wrap page">
+  <div class="page-head"><div><div class="eyebrow">FAQ</div><h1>Частые вопросы</h1><p class="lead">Не нашли ответ - спросите в нашем <a data-cfg-href="discordInvite" target="_blank" rel="noopener">Discord</a>.</p></div></div>
+  <div class="faqbar reveal"><label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="fq" placeholder="Поиск по вопросам…" aria-label="Поиск по вопросам"></label><button class="btn btn-sm" id="fall" type="button">Раскрыть все</button></div>
+  <div class="faq reveal">
+<details><summary>Как попасть на сервер?</summary><p>Зарегистрируйтесь на сайте, затем зайдите в наш <a data-cfg-href="discordInvite" target="_blank" rel="noopener">Discord</a> и напишите заявку - или купите <a href="shop">проходку</a> и заходите сразу. Подробнее - на странице <a href="start">«Как начать»</a>.</p></details>
+<details><summary>Что написать в заявке?</summary><p>Ник в Minecraft, возраст, как узнали о сервере и чем любите заниматься в игре. Чем интереснее - тем быстрее одобрят.</p></details>
+<details><summary>Чем проходка отличается от заявки?</summary><p>Только скоростью: с проходкой не нужно ждать ответа. Никаких игровых преимуществ она не даёт, правила для всех одинаковые.</p></details>
+<details><summary>Сколько ждать ответа на заявку?</summary><p>Обычно до часа днём, иногда до суток. Статус виден в <a href="profile">профиле</a>.</p></details>
+<details><summary>Нужна ли лицензия Minecraft?</summary><p>Да, сервер работает в онлайн-режиме - нужен лицензионный аккаунт Java Edition.</p></details>
+<details><summary>Можно ли играть с Bedrock?</summary><p>Нет, сервер только для Java Edition, чтобы сохранить ванильные механики.</p></details>
+<details><summary>Есть ли приваты?</summary><p>Нет - это честная ванилла. Ваши постройки защищают <a href="rules">правила</a> и администрация: логи всех блоков сохраняются, гриф откатываем.</p></details>
+<details><summary>Будет ли вайп мира?</summary><p>Мир живёт весь сезон. Новый сезон начинается с обновлением игры, старый мир выкладываем для скачивания.</p></details>
+<details><summary>Нужны ли моды, чтобы играть?</summary><p>Нет, зайти можно с чистого клиента. Но советуем <b>Plasmo Voice</b> (голосовой чат) и <b>Emote Craft</b> (эмоции) - оба есть на Modrinth.</p></details>
+<details><summary>Какие моды можно ставить?</summary><p>Разрешены Plasmo Voice, Emote Craft, оптимизация и интерфейс: Sodium, Iris, мини-карта без радара сущностей. Всё, что даёт преимущество, - запрещено.</p></details>
+<details><summary>Что даёт магазин?</summary><p>Только поддержку сервера и сервисные услуги: проходка, QUADRANT+, значки, твинк, смена аккаунта. Ресурсы и игровые преимущества не продаются.</p></details>
+<details><summary>Меня забанили, что делать?</summary><p>Причина видна в профиле. Не согласны - напишите апелляцию в Discord. Досрочная разблокировка есть в магазине, но не за читы и гриферство.</p></details>
+<details><summary>Как написать другому игроку?</summary><p>Откройте раздел <a href="players">«Игроки»</a>, найдите ник и нажмите «Написать». Отправка - клавишей Enter, перенос строки - Shift+Enter.</p></details>
+<details><summary>Как оформить профиль?</summary><p>Профиль → Настройки: описание и свой баннер. Под 3D-скином можно выбрать один из 7 фонов. Сам скин берётся из вашего аккаунта Minecraft.</p></details>
+<details><summary>Как сменить тему сайта?</summary><p>Кнопка «Тема» слева внизу: светлая или тёмная. Выбор запоминается.</p></details>
+<details><summary>Где посмотреть карту?</summary><p>На странице <a href="map">«Карта»</a> - там карта мира с игроками онлайн.</p></details>
+<details><summary>Как сменить пароль или email?</summary><p>В профиле → Настройки → Безопасность.</p></details>
+  </div>
+  <p class="fnone" id="fnone" hidden>Ничего не нашлось - спросите в <a data-cfg-href="discordInvite" target="_blank" rel="noopener">Discord</a>.</p>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="assets/firebase-config.js?v=13"></script>
+<script src="assets/firebase-api.js?v=13"></script>
+<script src="assets/app.js?v=13"></script>
+<script>
+(()=>{ const q=document.getElementById("fq"), all=document.getElementById("fall"), ds=[...document.querySelectorAll(".faq details")];
+  q.oninput=()=>{ const v=q.value.toLowerCase().trim(); let n=0; ds.forEach(d=>{ const ok=!v||d.textContent.toLowerCase().includes(v); d.hidden=!ok; if(ok) n++; if(v&&ok) d.open=true; }); document.getElementById("fnone").hidden=n>0; };
+  all.onclick=()=>{ const open=!ds.every(d=>d.open); ds.forEach(d=>d.open=open); all.textContent=open?"Свернуть все":"Раскрыть все"; };
+})();
+</script>
+</body></html>

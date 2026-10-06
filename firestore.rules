@@ -1,0 +1,100 @@
+rules_version = '2';
+// QUADRANT - правила безопасности Firestore.
+// Firebase Console → Firestore Database → Правила → вставьте этот файл целиком → Опубликовать.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signed() { return request.auth != null; }
+    function me() { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data; }
+    function exists_me() { return exists(/databases/$(database)/documents/users/$(request.auth.uid)); }
+    // ВЛАДЕЛЕЦ: становится админом автоматически (должно совпадать с owners в firebase-config.js)
+    function ownerEmail() { return signed() && request.auth.token.email == 'ccotanno@gmail.com'; }
+    function admin() { return signed() && exists_me() && me().role == 'admin'; }
+    function active() { return signed() && exists_me() && me().banned != true; }
+
+    // ник → uid + email (нужен для входа по нику). Читать можно только по точному нику, список - нельзя.
+    match /nicks/{nick} {
+      allow get: if true;
+      allow list: if false;
+      allow create: if signed() && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.email == request.auth.token.email
+                    && nick.matches('^[a-z0-9_]{3,16}$');
+      allow update: if signed() && resource.data.uid == request.auth.uid
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.email == request.auth.token.email;
+      allow delete: if signed() && (resource.data.uid == request.auth.uid || admin());
+    }
+
+    // публичный профиль игрока
+    match /users/{uid} {
+      allow read: if true;
+      allow create: if signed() && request.auth.uid == uid
+        && request.resource.data.nick is string
+        && get(/databases/$(database)/documents/nicks/$(request.resource.data.nick.lower())).data.uid == uid
+        && request.resource.data.balance == 0
+        && request.resource.data.whitelisted == false
+        && request.resource.data.banned == false
+        && (request.resource.data.role == 'player' || (request.resource.data.role == 'admin' && ownerEmail()));
+      allow update: if admin() || (
+        request.auth.uid == uid && resource.data.banned != true
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['bio', 'cover', 'skinBg', 'coverV', 'lastLogin', 'discord', 'whitelisted', 'role'])
+        && (!('whitelisted' in request.resource.data.diff(resource.data).affectedKeys()) || request.resource.data.whitelisted == false)
+        && (!('role' in request.resource.data.diff(resource.data).affectedKeys()) || (request.resource.data.role == 'admin' && ownerEmail()))
+      );
+      allow delete: if (signed() && request.auth.uid == uid) || admin();
+    }
+
+    // личные данные: email и заметка админа
+    match /private/{uid} {
+      allow read: if (signed() && request.auth.uid == uid) || admin();
+      allow create: if signed() && request.auth.uid == uid && request.resource.data.note == '';
+      allow update: if admin() || (signed() && request.auth.uid == uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['email'])
+        && request.resource.data.email == request.auth.token.email);
+      allow delete: if (signed() && request.auth.uid == uid) || admin();
+    }
+
+    // фото-обложки профилей
+    match /covers/{uid} {
+      allow read: if true;
+      allow write: if (active() && request.auth.uid == uid) || admin();
+    }
+
+    // объявление и товары
+    match /config/{doc} {
+      allow read: if true;
+      allow write: if admin();
+    }
+
+    // заказы
+    match /orders/{id} {
+      allow read: if (signed() && resource.data.uid == request.auth.uid) || admin();
+      allow create: if active() && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.status == 'awaiting_payment';
+      allow update, delete: if admin();
+    }
+
+    // журнал действий
+    match /log/{id} {
+      allow read: if admin();
+      allow create: if signed();
+      allow update, delete: if false;
+    }
+
+    // личные сообщения: chats/{uidA_uidB}/msgs
+    match /chats/{pair}/msgs/{id} {
+      allow read: if signed() && request.auth.uid in pair.split('_');
+      allow create: if active() && request.auth.uid in pair.split('_')
+                    && request.resource.data.by == request.auth.uid
+                    && request.resource.data.x is string && request.resource.data.x.size() <= 1000;
+      allow update, delete: if false;
+    }
+
+    // списки диалогов: inbox/{владелец}/convs/{собеседник}
+    match /inbox/{owner}/convs/{other} {
+      allow read: if signed() && request.auth.uid == owner;
+      allow write: if active() && (request.auth.uid == owner || request.auth.uid == other);
+    }
+  }
+}

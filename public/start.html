@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как начать - QUADRANT</title>
+<meta name="description" content="Как попасть на сервер QUADRANT: регистрация, Discord, подключение.">
+<meta name="theme-color" content="#060A12">
+<link rel="icon" href="assets/favicon.svg?v=9" type="image/svg+xml"><link rel="alternate icon" href="assets/favicon.png?v=9" type="image/png"><link rel="apple-touch-icon" href="assets/favicon.png?v=9">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="assets/style.css?v=12">
+</head>
+<body data-page="start">
+<main class="wrap page">
+  <div class="page-head"><div><div class="eyebrow">Как начать</div><h1>Как попасть на сервер</h1><p class="lead">Два пути: напишите заявку в нашем Discord или купите проходку и заходите сразу.</p></div></div>
+  <div class="steps">
+    <div class="step reveal"><img class="picon" src="assets/px-book.png" alt="" width="44" height="44"><h3>1. Аккаунт на сайте</h3><p>Зарегистрируйтесь с ником из лицензионного Minecraft Java - по нему вас добавят в вайтлист.</p><button class="btn btn-sm btn-glow" data-open="register">Регистрация</button></div>
+    <div class="step reveal"><img class="picon" src="assets/px-chat.png" alt="" width="44" height="44"><h3>2а. Заявка в Discord</h3><p>Зайдите в наш Discord и напишите заявку на сервер: ник, возраст и пару слов о себе. Администрация ответит там же.</p><a class="btn btn-sm btn-discord" data-cfg-href="discordInvite" target="_blank" rel="noopener">Написать заявку</a></div>
+    <div class="step reveal"><img class="picon" src="assets/ico-pass.png" alt="" width="44" height="44"><h3>2б. Или купите проходку</h3><p>Не хотите ждать ответа? Проходка добавляет в вайтлист сразу после оплаты. Правила общие для всех.</p><a class="btn btn-sm" href="shop">Купить проходку</a></div>
+  </div>
+  <div class="discord reveal">
+      <div class="txt"><div class="dlogo"><svg viewBox="0 0 24 24"><use href="#dc"/></svg></div><div><h3>Discord QUADRANT</h3><p>Новости, ивенты, торговля и поиск тиммейтов. Обязателен для вайтлиста.</p></div></div>
+      <a class="btn btn-discord" data-cfg-href="discordInvite" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><use href="#dc"/></svg>Зайти в Discord</a>
+    </div>
+  <div class="sec-head"><div><div class="eyebrow">Подключение</div><h2>Как зайти на сервер</h2></div></div>
+  <div class="connect">
+    <div class="ccard reveal"><h3>Адрес сервера</h3><div class="ipbox"><span data-cfg="ip"></span><button class="btn btn-sm" data-act="copy">Копировать</button></div><p style="color:var(--muted)">Игра: <b style="color:var(--text)">Minecraft Java Edition</b>. <span data-stext>Проверяем сервер…</span></p></div>
+    <div class="ccard reveal"><h3>Инструкция</h3><ol><li>Запустите <b>Minecraft Java Edition</b>.</li><li>Откройте <b>Сетевая игра → Добавить сервер</b>.</li><li>Вставьте IP и нажмите <b>Готово</b>.</li><li>Зайдите и прочитайте <a href="rules" style="color:var(--mint)">правила</a>.</li></ol></div>
+  </div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="assets/firebase-config.js?v=13"></script>
+<script src="assets/firebase-api.js?v=13"></script>
+<script src="assets/app.js?v=13"></script>
+</body></html>

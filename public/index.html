@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QUADRANT - ванильный сервер Minecraft</title>
+<meta name="description" content="QUADRANT - чистый ванильный Minecraft без приватов и привилегий, с голосовым чатом Plasmo Voice и эмоциями Emote Craft.">
+<meta name="theme-color" content="#060A12">
+<link rel="icon" href="assets/favicon.svg?v=9" type="image/svg+xml"><link rel="alternate icon" href="assets/favicon.png?v=9" type="image/png"><link rel="apple-touch-icon" href="assets/favicon.png?v=9">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="assets/style.css?v=12">
+</head>
+<body data-page="home">
+<main class="wrap">
+  <header class="hero">
+    <div>
+      <span class="pill"><span class="dot" data-sdot></span><span data-stext>Проверяем сервер…</span></span>
+      <div class="kicker">QUADRANT · VANILLA SMP</div>
+      <h1><span class="nw">Чистый Minecraft.</span><br><span class="gradient-text nw">Ничего лишнего.</span></h1>
+      <p class="lead">Ванильное выживание без привилегий и приватов. Только вы, мир, голосовой чат и честные игроки.</p>
+      <div class="cta">
+        <button class="btn btn-glow" data-open="register">Начать играть</button>
+        <button class="btn ip" id="copyIp"><span data-cfg="ip"></span><span class="copy">Копировать</span></button>
+      </div>
+      <div class="players" data-players></div>
+    </div>
+    <div class="hero-art">
+      
+      <div class="tglow"></div>
+      <div class="floor"></div>
+      <a class="cube-wrap tree-wrap" href="shop" aria-label="Зимние скидки в магазине"><span class="sale">Зимние скидки</span><span class="tbase"></span><span class="tsnow"><i style="left:32%;--d:7.4s;--t:-1.0s;--x:28px"></i><i style="left:79%;--d:6.9s;--t:-4.6s;--x:8px"></i><i style="left:3%;--d:8.6s;--t:-3.8s;--x:5px"></i><i style="left:31%;--d:5.8s;--t:-5.7s;--x:4px"></i><i style="left:72%;--d:6.9s;--t:-5.1s;--x:-21px"></i><i style="left:31%;--d:7.5s;--t:-6.9s;--x:3px"></i><i style="left:51%;--d:8.0s;--t:-5.4s;--x:-26px"></i><i style="left:22%;--d:8.0s;--t:-4.7s;--x:-11px"></i><i style="left:5%;--d:8.3s;--t:-2.2s;--x:8px"></i><i style="left:94%;--d:8.7s;--t:-3.1s;--x:20px"></i><i style="left:56%;--d:6.6s;--t:-6.4s;--x:-2px"></i><i style="left:19%;--d:8.5s;--t:-0.8s;--x:-22px"></i><i style="left:65%;--d:5.9s;--t:-7.7s;--x:-3px"></i><i style="left:82%;--d:8.4s;--t:-3.4s;--x:23px"></i></span><span class="tsway"><span class="tstar"></span><span class="lights"><i style="left:47.6%;top:22.0%;--c:#FFD86B;animation-delay:-0.4s"></i><i style="left:52.6%;top:26.1%;--c:#FF6B6B;animation-delay:-0.2s"></i><i style="left:50.8%;top:30.3%;--c:#7FD4FF;animation-delay:-0.9s"></i><i style="left:39.1%;top:34.4%;--c:#9DFF8A;animation-delay:-1.2s"></i><i style="left:36.9%;top:38.5%;--c:#FFB3F0;animation-delay:-1.0s"></i><i style="left:36.2%;top:42.7%;--c:#FFD86B;animation-delay:-0.2s"></i><i style="left:47.3%;top:46.8%;--c:#FF6B6B;animation-delay:-2.0s"></i><i style="left:35.2%;top:50.9%;--c:#7FD4FF;animation-delay:-0.5s"></i><i style="left:55.5%;top:55.1%;--c:#9DFF8A;animation-delay:-2.3s"></i><i style="left:53.6%;top:59.2%;--c:#FFB3F0;animation-delay:-1.0s"></i><i style="left:73.9%;top:63.3%;--c:#FFD86B;animation-delay:-0.1s"></i><i style="left:69.3%;top:67.5%;--c:#FF6B6B;animation-delay:-0.7s"></i><i style="left:29.5%;top:71.6%;--c:#7FD4FF;animation-delay:-0.3s"></i><i style="left:38.3%;top:75.7%;--c:#9DFF8A;animation-delay:-2.0s"></i><i style="left:29.3%;top:79.9%;--c:#FFB3F0;animation-delay:-1.4s"></i><i style="left:59.5%;top:84.0%;--c:#FFD86B;animation-delay:-0.9s"></i></span><img class="tree" src="assets/tree.webp" alt="" width="429" height="634" fetchpriority="high" draggable="false"></span><img class="gifts" src="assets/gifts.webp" alt="" width="300" height="90" draggable="false"></a>
+    </div>
+  </header>
+
+
+  <div class="sec-head"><div><div class="eyebrow">Мир сервера</div><h2>Загляните в мир, не заходя в игру</h2></div><a class="link-more" href="map">Все о карте →</a></div>
+  <div class="teasers">
+    <a class="mapban sm reveal" href="map"><canvas data-worldmap></canvas><div class="in"><span class="tag" data-cfg="mapEngine"></span><div class="big">Карта <span>›</span></div><div class="sub">Динамическая карта мира и игроков</div></div></a>
+    <a class="teaser shopbg reveal" href="shop"><div class="art"><img src="https://mc-heads.net/body/jeb_/110" alt="" loading="lazy" decoding="async"><img src="https://mc-heads.net/body/Alex/110" alt="" loading="lazy" decoding="async"></div><div class="eyebrow">Магазин</div><h3>Поддержите сервер</h3><p>Подписка QUADRANT+, значки и сервисные услуги - без преимуществ в игре.</p></a>
+  </div>
+
+  <div class="sec-head"><div><div class="eyebrow">Особенности</div><h2>Ваниль, в которой есть с кем поговорить</h2></div></div>
+  <div class="feats">
+    <article class="feat reveal"><div class="fh"><h3>Голосовой чат</h3><span class="fnum">01</span></div>
+      <p>На сервере работает <b>Plasmo Voice</b> - голосовой чат прямо в игре. Слышно тех, кто рядом: чем дальше игрок, тем тише голос. Договаривайтесь о сделках, стройте вместе и знакомьтесь вживую.</p>
+      <span class="fmod">Мод для клиента · Plasmo Voice</span>
+      <div class="fimg"><img src="assets/voice.webp" alt="Голосовой чат Plasmo Voice" width="640" height="640" loading="lazy" decoding="async"></div></article>
+    <article class="feat reveal"><div class="fh"><h3>Эмоции</h3><span class="fnum">02</span></div>
+      <p>С <b>Emote Craft</b> персонаж умеет махать рукой, танцевать, кланяться и праздновать победу над драконом. Анимации видят все игроки с модом.</p>
+      <span class="fmod">Мод для клиента · Emote Craft</span>
+      <div class="fimg"><img src="assets/emotes.webp" alt="Эмоции Emote Craft" width="640" height="640" loading="lazy" decoding="async"></div></article>
+    <article class="feat reveal"><div class="fh"><h3>Дружелюбный коллектив</h3><span class="fnum">03</span></div>
+      <p>У нас не гриферят и не токсичат. Новичкам помогают освоиться, споры решают спокойно в Discord, а администрация всегда на связи.</p>
+      <span class="fmod">Сообщество · без токсичности</span>
+      <div class="fimg"><img src="assets/friends.webp" alt="Дружелюбный коллектив" width="640" height="640" loading="lazy" decoding="async"></div></article>
+  </div>
+  <div class="sec-head"><div><div class="eyebrow">Как начать</div><h2>Три шага до первого рассвета</h2></div><a class="link-more" href="start">Подробнее →</a></div>
+  <div class="steps">
+    <div class="step reveal"><img class="picon" src="assets/px-book.png" alt="" width="44" height="44"><h3>Зарегистрируйтесь</h3><p>Укажите ник из Minecraft - он станет вашей заявкой в вайтлист.</p></div>
+    <div class="step reveal"><img class="picon" src="assets/px-chat.png" alt="" width="44" height="44"><h3>Зайдите в Discord</h3><p>Вступите на наш сервер и привяжите аккаунт в профиле.</p></div>
+    <div class="step reveal"><img class="picon" src="assets/px-pick.png" alt="" width="44" height="44"><h3>Заходите в игру</h3><p>После одобрения добавьте сервер по IP. Увидимся на спавне.</p></div>
+  </div>
+  <div class="discord reveal">
+      <div class="txt"><div class="dlogo"><img src="assets/discord.png" alt="Discord" width="56" height="56" loading="lazy"></div><div><h3>Discord QUADRANT</h3><p>Новости, ивенты, торговля и поиск тиммейтов. Обязателен для вайтлиста.</p></div></div>
+      <a class="btn btn-discord" data-cfg-href="discordInvite" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><use href="#dc"/></svg>Зайти в Discord</a>
+    </div>
+
+  <div class="final reveal">
+    <svg class="big"><use href="#qlogo"/></svg>
+    <h2>Мир уже ждёт</h2>
+    <p>Регистрация занимает меньше минуты.</p>
+    <button class="btn btn-glow" data-open="register">Создать аккаунт</button>
+  </div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="assets/firebase-config.js?v=13"></script>
+<script src="assets/firebase-api.js?v=13"></script>
+<script src="assets/app.js?v=13"></script>
+<script>
+document.getElementById("copyIp").onclick=async()=>{ await Q.copyIp(); const c=document.querySelector("#copyIp .copy"); c.textContent="Скопировано ✓"; setTimeout(()=>c.textContent="Копировать",2000); };
+/* ===== частицы-руны стола зачарований (стандартный галактический алфавит) ===== */
+(()=>{ const cv=$("#glyphs"); if(!cv) return; const ctx=cv.getContext("2d"); let W,H,dpr,ps=[];
+  const G=[ // пиксельные глифы 5×5 в стиле алфавита зачарований
+    ["#....","#....","#####","....#","....#"], ["..#..","..#..","#####","#...#","#####"],
+    ["#####","#....","#..#.","#....","#####"], ["...#.","...#.","#####","#..#.","##.#."],
+    ["#...#","#...#","#####","..#..","..#.."], ["#####",".....","#####","..#..","..#.."],
+    ["....#","....#","#####","....#","....#"], ["..#..","..#..","#####","....."," #.#."],
+    ["#","#",".","#","#"], ["#",".","#",".","#"],
+    ["#..#.","#.#..","##...","#.#..","#..#."], ["#....","#....","#....","#..#.","#####"],
+    ["#.#.#","#.#.#","#.#.#","#####","....."], ["#...#","#...#","#...#","....#","..##."],
+    ["#.#",".#.","#.#"], ["####.","#....","#####","....#",".####"],
+    ["#####","....#","....#","....#"], ["#.#","#.#","...","###"], [".#.","...","#.#"],
+    ["#...#",".#.#.","..#..",".#.#.","#...#"], ["##.##","##.##"]
+  ];
+  function rs(){ dpr=Math.min(devicePixelRatio,2); W=cv.offsetWidth; H=cv.offsetHeight; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  rs(); addEventListener("resize",rs);
+  function spawn(){ const a=Math.random()*Math.PI*2, R=150+Math.random()*120;
+    return {a,R,life:0,max:140+Math.random()*120,g:G[(Math.random()*G.length)|0],p:Math.random()<.35?4:3,spin:(Math.random()-.5)*.006,rise:.15+Math.random()*.35,dy:0}; }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    if(ps.length<46 && Math.random()<.5) ps.push(spawn());
+    const cx=W/2, cy=H/2;
+    for(const p of ps){
+      p.life++; p.R-=.55; p.a+=p.spin; p.dy-=p.rise;
+      const t=p.life/p.max, alpha=Math.sin(Math.min(t,1)*Math.PI)*.95;
+      const x=cx+Math.cos(p.a)*p.R, y=cy+Math.sin(p.a)*p.R*.55+p.dy;
+      ctx.shadowColor="rgba(255,255,255,.9)"; ctx.shadowBlur=8;
+      ctx.fillStyle=`rgba(255,255,255,${alpha})`;
+      p.g.forEach((row,j)=>{ for(let i=0;i<row.length;i++) if(row[i]==="#") ctx.fillRect(Math.round(x+i*p.p),Math.round(y+j*p.p),p.p,p.p); });
+    }
+    ps=ps.filter(p=>p.life<p.max && p.R>40);
+    if(!RM && vis) requestAnimationFrame(draw); else run=false;
+  }
+  let vis=true, run=true; new IntersectionObserver(([e])=>{ vis=e.isIntersecting; if(vis&&!run){ run=true; requestAnimationFrame(draw); } }).observe(cv);
+  draw();
+})();
+</script></body></html>
